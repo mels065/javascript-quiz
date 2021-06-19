@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Quiz</title>
+    </head>
+    <body>
+        <header>
+            <h1>JavaScript Quiz</h1>
+        </header>
+        <main>
+            <div id="start-quiz" class="screen">
+                <button id="start-quiz-btn">Start Quiz</button>
+            </div>
+            <div id="quiz" class="screen hide">
+                <form class="quiz-form">
+                    <h2 id="question"></h2>
+                    <label for="choice-1"></label><input name="choice-1" type="radio" />
+                    <label for="choice-2"></label><input name="choice-2" type="radio" />
+                    <label for="choice-3"></label><input name="choice-3" type="radio" />
+                    <label for="choice-4"></label><input name="choice-4" type="radio" />
+                    <input type="submit" />
+                </form>
+            </div>
+            <div id="hi-score" class="screen hide">
+                <form class="hi-score-form">
+                    <label for="hi-score-initial">Initials</label><input name="hi-score-initial" />
+                    <input type="submit" />
+                </form>
+                <h2>Hi-Scores</h2>
+                <ol id="hi-score-list"></ol>
+            </div>
+        </main>
+        <footer>
+            <p>2021 &copy; Brandon Mellus</p>
+        </footer>
+    </body>
+</html>
