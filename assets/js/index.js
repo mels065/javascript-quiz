@@ -41,6 +41,24 @@ function renderQuestion() {
     }, 1000);
 }
 
-function showAnswer(choice) {}
+function showAnswer(choice) {
+    if (choice === questions[questionIndex].answer) {
+        answerStatusEl.classList.add("correct");
+        answerStatusEl.innerText = "Correct!"
+    } else {
+        answerStatusEl.classList.add("wrong");
+        answerStatusEl.innerText = "Wrong";
+    }
+    setTimeout(function () {
+        answerStatusEl.innerText = "";
+        answerStatusEl.classList.remove("correct");
+        answerStatusEl.classList.remove("wrong");
+
+        questionIndex++;
+        if (questionIndex < questions.length) {
+            renderQuestion();
+        }
+    }, 5000);
+}
 
 startQuizBtnEl.addEventListener("click", startQuiz);
