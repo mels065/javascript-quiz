@@ -48,7 +48,7 @@ const questions = [
     },
     {
         question: "How would you select an element in the DOM by its ID?",
-        choice: [
+        choices: [
             "document.fetchById",
             "document.getElementById",
             "element.getElementById",
