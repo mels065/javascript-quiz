@@ -25,8 +25,22 @@ function startQuiz() {
     renderQuestion();
 }
 
-function renderQuestion() {}
+function renderQuestion() {
+    questionEl.innerText = questions[questionIndex].question;
+    for (let i = 0; i < questions[questionIndex].choices.length; i++) {
+        choicesEls[i].innerText = questions[questionIndex].choices[i]
+    }
 
+    timer = 60;
+    const intervalId = setInterval(function () {
+        if (timer <= 0) {
+            clearInterval(intervalId);
+            // -1 indicates that no choice was selected
+            showAnswer(-1);
+        }
+    }, 1000);
+}
 
+function showAnswer(choice) {}
 
 startQuizBtnEl.addEventListener("click", startQuiz);
