@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>JavaScript Quiz</title>
+        <link href="assets/css/normalize.css" type="text/css" rel="stylesheet" />
         <link href="assets/css/style.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
@@ -14,12 +15,8 @@
                 <button id="start-quiz-btn">Start Quiz</button>
             </div>
             <div id="quiz-screen" class="screen hide">
-                <form id="quiz-form">
-                    <h2 id="question"></h2>
-                    <label for="choice-1"></label><input name="choice-1" data-index="0" type="radio" />
-                    <label for="choice-2"></label><input name="choice-2" data-index="1" type="radio" />
-                    <label for="choice-3"></label><input name="choice-3" data-index="2" type="radio" />
-                    <label for="choice-4"></label><input name="choice-4" data-index="3" type="radio" />
+                <h2 id="question"></h2>
+                <div id="choices"></div>
                 </form>
                 <div id="answer-result"></div>
             </div>

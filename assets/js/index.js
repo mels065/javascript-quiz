@@ -5,14 +5,11 @@ const quizScreenEl = document.getElementById("quiz-screen");
 const hiScoreScreenEl = document.getElementById("hi-score-screen");
 
 const questionEl = document.getElementById("question");
-const answerStatusEl = document.getElementById("answer-status");
+const choicesEl = document.getElementById("choices");
+const timerEl = document.getElementById("timer");
+const answerResultEl = document.getElementById("answer-result");
 
-const choicesEls = [];
-for (let i = 0; i < 4; i++) {
-    choicesEls.push(
-        document.querySelector(`label[for="choice-${i+1}"]`)
-    );
-}
+let choicesBtnsEls = [];
 
 let questionIndex = 0;
 let timer = 0;
@@ -28,31 +25,62 @@ function startQuiz() {
 function renderQuestion() {
     questionEl.innerText = questions[questionIndex].question;
     for (let i = 0; i < questions[questionIndex].choices.length; i++) {
-        choicesEls[i].innerText = questions[questionIndex].choices[i]
+        let choiceBtnEl = document.createElement("button")
+        choiceBtnEl.setAttribute("id", `choice-${i+1}`);
+        choiceBtnEl.classList.add("choice-btn");
+        choiceBtnEl.innerText = questions[questionIndex].choices[i];
+        choicesEl.append(choiceBtnEl);
+        choicesBtnsEls.push(choiceBtnEl);
     }
 
     timer = 60;
+    timerEl.innerText = timer;
     const intervalId = setInterval(function () {
         if (timer <= 0) {
             clearInterval(intervalId);
             // -1 indicates that no choice was selected
             showAnswer(-1);
+        } else {
+            timer--;
+            timerEl.innerText = timer;
         }
     }, 1000);
+
+    for (let i = 0; i < questions[questionIndex].choices.length; i++) {
+        choicesBtnsEls[i].addEventListener("click", function (event) {
+            clearInterval(intervalId);
+            showAnswer(i);
+        });
+    }
 }
 
 function showAnswer(choice) {
-    if (choice === questions[questionIndex].answer) {
-        answerStatusEl.classList.add("correct");
-        answerStatusEl.innerText = "Correct!"
-    } else {
-        answerStatusEl.classList.add("wrong");
-        answerStatusEl.innerText = "Wrong";
+    for (let i = 0; i < choicesBtnsEls.length; i++) {
+        choicesBtnsEls[i].setAttribute("disabled", true);
     }
+
+    if (choice === questions[questionIndex].answer) {
+        answerResultEl.classList.add("correct");
+        answerResultEl.innerText = "Correct!"
+    } else {
+        answerResultEl.classList.add("wrong");
+        answerResultEl.innerText = "Wrong";
+    }
+    
+    for (let i = 0; i < questions[questionIndex].choices.length; i++) {
+        if (i === questions[questionIndex].answer) {
+            choicesBtnsEls[i].classList.add("correct");
+        } else {
+            choicesBtnsEls[i].classList.add("wrong");
+        }
+    }
+
     setTimeout(function () {
-        answerStatusEl.innerText = "";
-        answerStatusEl.classList.remove("correct");
-        answerStatusEl.classList.remove("wrong");
+        answerResultEl.innerText = "";
+        answerResultEl.classList.remove("correct");
+        answerResultEl.classList.remove("wrong");
+        choicesEl.innerHTML = "";
+        choicesBtnsEls = [];
 
         questionIndex++;
         if (questionIndex < questions.length) {

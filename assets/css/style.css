@@ -1,3 +1,13 @@
 .hide {
     display: none;
 }
+
+.choice-btn.correct[disabled] {
+    background-color: green;
+    color: white;
+}
+
+.choice-btn.wrong[disabled] {
+    background-color: red;
+    color: white;
+}
