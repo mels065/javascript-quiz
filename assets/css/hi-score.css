@@ -1,0 +1,9 @@
+#hi-score-initial {
+    padding: 10px;
+}
+
+#hi-score-list {
+    color: var(--blue);
+    margin: 0 auto;
+    width: 50%;
+}

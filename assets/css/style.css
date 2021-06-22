@@ -52,34 +52,8 @@ button[disabled]:hover {
     text-align: center;
 }
 
-#answer-result {
-    display: inline-block;
-    padding: 10px 30px;;
-    margin: 10px;
-}
-
 .hide {
     display: none;
-}
-
-.correct, .correct[disabled] {
-    background-color: green;
-    color: white;
-}
-
-.wrong, .wrong[disabled] {
-    background-color: red;
-    color: white;
-}
-
-#hi-score-initial {
-    padding: 10px;
-}
-
-#hi-score-list {
-    color: var(--blue);
-    margin: 0 auto;
-    width: 50%;
 }
 
 footer {

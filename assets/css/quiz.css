@@ -1,0 +1,15 @@
+#answer-result {
+    display: inline-block;
+    padding: 10px 30px;;
+    margin: 10px;
+}
+
+.correct, .correct[disabled] {
+    background-color: green;
+    color: white;
+}
+
+.wrong, .wrong[disabled] {
+    background-color: red;
+    color: white;
+}
