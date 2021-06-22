@@ -1,4 +1,4 @@
-const HI_SCORE_LIST_MAX = 3;
+const HI_SCORE_LIST_MAX = 10;
 
 const startQuizBtnEl = document.getElementById("start-quiz-btn");
 const submitHiScoreBtn = document.getElementById("submit-hi-score-btn");
@@ -148,7 +148,7 @@ function submitHiScore(event) {
     event.preventDefault();
 
     const initialInput = document.querySelector('input[name="hi-score-initial"]');
-    if (initialInput === "" || initialInput.length > 3) return;
+    if (initialInput.value.length === 0 || initialInput.value.length > 3) return;
     
     const newScore = { initials: initialInput.value, score };
 
