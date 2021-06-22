@@ -1,13 +1,87 @@
+:root {
+    --black: #222;
+    --white: #eee;
+    --blue: #2088e8;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: Helvetica, Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 50px 0;
+}
+
+header h1 {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 3rem;
+}
+
+button {
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: bold;
+    margin: 5px;
+    padding: 20px;
+}
+
+button[disabled] {
+    opacity: 0.5;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button[disabled]:hover {
+    cursor: default;
+}
+
+#status-panel {
+    color: var(--blue);
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+}
+
+.screen {
+    padding: 200px;
+    text-align: center;
+}
+
+#answer-result {
+    display: inline-block;
+    padding: 10px 30px;;
+    margin: 10px;
+}
+
 .hide {
     display: none;
 }
 
-.choice-btn.correct[disabled] {
+.correct, .correct[disabled] {
     background-color: green;
     color: white;
 }
 
-.choice-btn.wrong[disabled] {
+.wrong, .wrong[disabled] {
     background-color: red;
     color: white;
+}
+
+#hi-score-initial {
+    padding: 10px;
+}
+
+#hi-score-list {
+    color: var(--blue);
+    margin: 0 auto;
+    width: 50%;
+}
+
+footer {
+    color: var(--blue);
 }
