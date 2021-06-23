@@ -4,6 +4,7 @@
     margin: 10px;
 }
 
+/* Color codes correct/wrong answers and the status message */
 .correct, .correct[disabled] {
     background-color: green;
     color: white;

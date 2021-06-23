@@ -1,3 +1,4 @@
+/* Variables */
 :root {
     --black: #222;
     --white: #eee;
@@ -47,11 +48,15 @@ button[disabled]:hover {
     justify-content: space-around;
 }
 
+/* Used for the different screens (start screen, quiz screen, 
+   hi-score screen) */
 .screen {
     padding: 200px;
     text-align: center;
 }
 
+/* Used to hide screens (start screen, quiz screen, hi-score screen) not
+   currently in use */
 .hide {
     display: none;
 }
